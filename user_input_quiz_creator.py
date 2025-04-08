@@ -19,8 +19,7 @@ def main_menu():
         elif user_choice == "2":
             remove_question()
         elif user_choice == "3":
-            # view_all_questions()
-            pass
+            view_all_questions()
         elif user_choice == "4":
             print(Fore.CYAN + "Goodbye! Thank you. Quiz Creator closed.")
             break
@@ -95,5 +94,18 @@ def remove_question():
                 print("Deletion cancelled")
     finally:
         pass
+
+def view_all_questions():
+    quiz_file = "quiz_creator.txt"
+
+    print(Fore.GREEN + Style.BRIGHT + "\nView all questions")
+    print(Fore.LIGHTWHITE_EX + "List of Questions:")
+
+    with open(quiz_file, "r") as file:
+        print(file.read())
+
+    if not os.path.exists(quiz_file):
+        print(Fore.RED + "No file found to exists")
+        return
 
 main_menu()

@@ -1,0 +1,24 @@
+Quiz Creator
+
+Pseudocode:
+1. Create a menu setup that presents options for user to "Add Question", "Remove Question", "View Question", and "Exit".
+2. Prompt the user to input choices in the created menu with the use of while loop so that the program will run
+continuously until the user chooses to exit.
+3. Define a function in which when the user chooses to "Add Questions", it will ask for the user to write a question,
+write a four answer choices (a, b, c, d) and the correct answer. Make sure to store the input into a .txt file. Output
+of the file must be clear and in an organized format.
+    Example:
+    Question: How many legs does a dog have?
+    a) 1
+    b) 2
+    c) 3
+    d) 4
+    Correct answer: d
+4. Define a function in which when the user chooses "Remove Question", it will load all the saved questions stored from
+the file, it will display a number, ask the user a number to delete the question, and update the file without the removed
+question.
+5. Define a function in which when the user chooses "View Questions", it will load all the questions and display them in
+a numbered list for organization. (Ex. [0] How many legs does a dog have?)
+6. Once the user chooses to "Exit", display a message and eng the program.
+7. Use libraries for more engaging experience such as colorama. Add as well an os.path to check if the quiz file exist
+before trying to delete or load anything.

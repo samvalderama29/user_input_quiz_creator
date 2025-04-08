@@ -1,18 +1,18 @@
-from colorama import init, Fore, Style
-init()
+from colorama import init, Fore, Style, Back
+init(autoreset = True)
 import os.path
 
-def main_menu()
+def main_menu():
     while True:
-        print("Welcome to the Quiz Creator!")
-        print("This program allows you to create questions and input answer to make a quiz!")
-        print("What would you like to do?")
+        print(Fore.GREEN + Style.BRIGHT + "\nWelcome to the Quiz Creator!")
+        print(Fore.LIGHTWHITE_EX + "This program allows you to create questions and input answer to make a quiz!")
+        print(Fore.LIGHTWHITE_EX + "\nWhat would you like to do?")
         print("1. Add a new question")
         print("2. Remove a question")
         print("3. View all questions")
         print("4. Exit")
 
-        user_choice = input("Enter your choice (1/2/3/4): ")
+        user_choice = input(Fore.LIGHTYELLOW_EX + "Enter your choice (1/2/3/4): ")
 
         if user_choice == "1":
             # add_new_question()
@@ -24,6 +24,9 @@ def main_menu()
             # view_all_questions()
             pass
         elif user_choice == "4":
-            print("Goodbye! Thank you. Quiz Creator closed.")
+            print(Fore.CYAN + "Goodbye! Thank you. Quiz Creator closed.")
+            break
         else:
-            print("Invalid input! Please choose between 1, 2, 3, and 4 only.")
+            print(Fore.RED +"Invalid input! Please choose between 1, 2, 3, and 4 only.")
+
+main_menu()

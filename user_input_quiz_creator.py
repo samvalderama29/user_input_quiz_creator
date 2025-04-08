@@ -1,4 +1,4 @@
-from colorama import init, Fore, Style
+from colorama import init, Fore, Style, Back
 init(autoreset = True)
 import os.path
 
@@ -75,5 +75,11 @@ def remove_question():
     if not user_stored_questions:
         print(Fore.RED + "No questions found to exists")
         return
+
+    print(Fore.LIGHTWHITE_EX + "List of Questions:")
+
+    for i in enumerate(quiz_file):
+        first_line = quiz_file.splitlines()[0] if quiz_file else "[Empty Question]"
+        print(Fore.YELLOW + f"[{i})]{first_line}")
 
 main_menu()

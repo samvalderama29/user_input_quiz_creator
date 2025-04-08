@@ -13,3 +13,17 @@ def main_menu()
         print("4. Exit")
 
         user_choice = input("Enter your choice (1/2/3/4): ")
+
+        if user_choice == "1":
+            # add_new_question()
+            pass
+        elif user_choice == "2":
+            # remove_question()
+            pass
+        elif user_choice == "3":
+            # view_all_questions()
+            pass
+        elif user_choice == "4":
+            print("Goodbye! Thank you. Quiz Creator closed.")
+        else:
+            print("Invalid input! Please choose between 1, 2, 3, and 4 only.")

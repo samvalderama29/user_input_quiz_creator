@@ -68,9 +68,9 @@ def remove_question():
         print(Fore.RED + "No file found to exists")
 
     with open(quiz_file, "r") as file:
-        file.read()
+        quiz_creator_file = file.read()
 
-    user_stored_questions = quiz_file.split("-----\n")
+    user_stored_questions = quiz_creator_file.strip().split("-----\n")
 
     if not user_stored_questions:
         print(Fore.RED + "No questions found to exists")
@@ -78,8 +78,8 @@ def remove_question():
 
     print(Fore.LIGHTWHITE_EX + "List of Questions:")
 
-    for i in enumerate(quiz_file):
-        first_line = quiz_file.splitlines()[0] if quiz_file else "[Empty Question]"
+    for i, user_stored_questions in enumerate(user_stored_questions):
+        first_line = user_stored_questions.splitlines()[0] if user_stored_questions else "[Empty Question]"
         print(Fore.YELLOW + f"[{i})]{first_line}")
 
 main_menu()

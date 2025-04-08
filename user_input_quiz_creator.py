@@ -1,4 +1,4 @@
-from colorama import init, Fore, Style, Back
+from colorama import init, Fore, Style
 init(autoreset = True)
 import os.path
 
@@ -51,5 +51,13 @@ def add_new_question():
         file.write(f"d) {choice_d}\n")
         file.write(f"Correct answer: {correct_answer}\n")
         file.write("-----\n")
+
+        another_question = input(Fore.CYAN + "Do you want to add another question? (yes/no): ")
+
+        if another_question.lower() != "yes":
+            print(Fore.RED + "Adding questions cancelled.")
+            print(Fore.GREEN + "Questions saved successfully!")
+        else:
+            add_new_question()
 
 main_menu()

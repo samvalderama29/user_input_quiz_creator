@@ -41,4 +41,15 @@ def add_new_question():
         choice_d = input("Enter choice d: ")
         correct_answer = input("Correct answer (a/b/c/d): ").lower()
 
+        if correct_answer not in ["a", "b", "c", "d"]:
+            print(Fore.RED +"Invalid input! Please choose between a, b, c, and d only.")
+
+        file.write(f"Question: {user_question}\n")
+        file.write(f"a) {choice_a}\n")
+        file.write(f"b) {choice_b}\n")
+        file.write(f"c) {choice_c}\n")
+        file.write(f"d) {choice_d}\n")
+        file.write(f"Correct answer: {correct_answer}\n")
+        file.write("-----\n")
+
 main_menu()

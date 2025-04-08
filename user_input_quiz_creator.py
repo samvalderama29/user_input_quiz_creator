@@ -82,4 +82,18 @@ def remove_question():
         first_line = user_stored_questions.splitlines()[0].replace("Question: ", " ") if user_stored_questions else "[Empty Question]"
         print(Fore.YELLOW + f"[{i}]{first_line}")
 
+    try:
+        index = int(input("Enter the number of the question you want to remove: "))
+        if 0 <= index < len(user_stored_questions):
+            confirm_remove = input("Are you sure you to delete this question? (yes/no): ")
+            if confirm_remove.lower() == "yes":
+                user_stored_questions.pop(index)
+                with open(quiz_file, "w") as file:
+                    file.write(f" {user_stored_questions} -----\n")
+                print("Question successfully removed!")
+            else:
+                print("Deletion cancelled")
+    finally:
+        pass
+
 main_menu()

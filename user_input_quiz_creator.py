@@ -4,7 +4,7 @@ import os.path
 
 def main_menu():
     while True:
-        print(Fore.GREEN + Style.BRIGHT + "\nWelcome to the Quiz Creator!")
+        print(Fore.LIGHTMAGENTA_EX + Style.BRIGHT + "\nWelcome to the Quiz Creator!")
         print(Fore.LIGHTWHITE_EX + "This program allows you to create questions and input answer to make a quiz!")
         print(Fore.LIGHTWHITE_EX + "\nWhat would you like to do?")
         print("1. Add a new question")
@@ -17,8 +17,7 @@ def main_menu():
         if user_choice == "1":
             add_new_question()
         elif user_choice == "2":
-            # remove_question()
-            pass
+            remove_question()
         elif user_choice == "3":
             # view_all_questions()
             pass
@@ -59,5 +58,22 @@ def add_new_question():
             print(Fore.GREEN + "Questions saved successfully!")
         else:
             add_new_question()
+
+def remove_question():
+    quiz_file = "quiz_creator.txt"
+
+    print(Fore.GREEN + Style.BRIGHT + "\nRemove a quiz question")
+
+    if not os.path.exists(quiz_file):
+        print(Fore.RED + "No file found to exists")
+
+    with open(quiz_file, "r") as file:
+        file.read()
+
+    user_stored_questions = quiz_file.split("-----\n")
+
+    if not user_stored_questions:
+        print(Fore.RED + "No questions found to exists")
+        return
 
 main_menu()

@@ -15,8 +15,7 @@ def main_menu():
         user_choice = input(Fore.LIGHTYELLOW_EX + "Enter your choice (1/2/3/4): ")
 
         if user_choice == "1":
-            # add_new_question()
-            pass
+            add_new_question()
         elif user_choice == "2":
             # remove_question()
             pass
@@ -28,5 +27,18 @@ def main_menu():
             break
         else:
             print(Fore.RED +"Invalid input! Please choose between 1, 2, 3, and 4 only.")
+
+def add_new_question():
+    quiz_file = "quiz_creator.txt"
+
+    print(Fore.GREEN + Style.BRIGHT + "\nEnter a new quiz question:")
+
+    with open(quiz_file, "a") as file:
+        user_question = input("Question: ")
+        choice_a = input("Enter choice a: ")
+        choice_b = input("Enter choice b: ")
+        choice_c = input("Enter choice c: ")
+        choice_d = input("Enter choice d: ")
+        correct_answer = input("Correct answer (a/b/c/d): ").lower()
 
 main_menu()

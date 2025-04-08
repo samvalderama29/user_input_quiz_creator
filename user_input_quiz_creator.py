@@ -79,7 +79,7 @@ def remove_question():
     print(Fore.LIGHTWHITE_EX + "List of Questions:")
 
     for i, user_stored_questions in enumerate(user_stored_questions):
-        first_line = user_stored_questions.splitlines()[0] if user_stored_questions else "[Empty Question]"
-        print(Fore.YELLOW + f"[{i})]{first_line}")
+        first_line = user_stored_questions.splitlines()[0].replace("Question: ", " ") if user_stored_questions else "[Empty Question]"
+        print(Fore.YELLOW + f"[{i}]{first_line}")
 
 main_menu()

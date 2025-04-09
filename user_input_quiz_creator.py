@@ -22,10 +22,10 @@ def main_menu():
         elif user_choice == "3":
             view_all_questions()
         elif user_choice == "4":
-            print(Fore.CYAN + "Goodbye! Thank you. Quiz Creator closed.")
+            print(Fore.CYAN + Style.BRIGHT + "\nGoodbye! Thank you. Quiz Creator closed.")
             break
         else:
-            print(Fore.RED +"Invalid input! Please choose between 1, 2, 3, and 4 only.")
+            print(Fore.RED +"\nInvalid input! Please choose between 1, 2, 3, and 4 only.")
 
 def add_new_question():
     quiz_file = "quiz_creator.txt"
@@ -41,7 +41,7 @@ def add_new_question():
         correct_answer = input("Correct answer (a/b/c/d): ").lower()
 
         if correct_answer not in ["a", "b", "c", "d"]:
-            print(Fore.RED +"Invalid input! Please choose between a, b, c, and d only.")
+            print(Fore.RED +"\nInvalid input! Please choose between a, b, c, and d only.")
 
         file.write(f"Question: {user_question}\n")
         file.write(f"a) {choice_a}\n")
@@ -54,7 +54,7 @@ def add_new_question():
         another_question = input(Fore.CYAN + "Do you want to add another question? (yes/no): ")
 
         if another_question.lower() != "yes":
-            print(Fore.RED + "Adding questions cancelled.")
+            print(Fore.RED + "\nAdding questions cancelled.")
             print(Fore.GREEN + "Questions saved successfully!")
             menu_exit_choice()
         else:
@@ -66,7 +66,7 @@ def remove_question():
     print(Fore.GREEN + Style.BRIGHT + "\nRemove a quiz question")
 
     if not os.path.exists(quiz_file):
-        print(Fore.RED + "No file found to exists")
+        print(Fore.RED + "\nNo file found to exists")
 
     with open(quiz_file, "r") as file:
         quiz_creator_file = file.read()
@@ -74,15 +74,15 @@ def remove_question():
     user_stored_questions = quiz_creator_file.strip().split("-----\n")
 
     if not user_stored_questions:
-        print(Fore.RED + "No questions found to exists")
-    else:
-        print(Fore.LIGHTWHITE_EX + "List of Questions:")
-        for i, question in enumerate(user_stored_questions):
-            first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty]"
-            print(Fore.YELLOW + f"[{i}]{first_line}")
-            menu_exit_choice()
+        print(Fore.RED + "\nNo questions found to exists")
+
+    print(Fore.LIGHTWHITE_EX + "\nList of Questions:")
+    for i, question in enumerate(user_stored_questions):
+        first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty]"
+        print(Fore.YELLOW + f"[{i}]{first_line}")
+
     try:
-        index = int(input("Enter the number of the question you want to remove: "))
+        index = int(input("\nEnter the number of the question you want to remove: "))
         if 0 <= index < len(user_stored_questions):
             confirm_remove = input("Are you sure you to delete this question? (yes/no): ")
             if confirm_remove.lower() == "yes":
@@ -92,7 +92,7 @@ def remove_question():
                         file.write(question.strip() + "\n")
                         if i < len(user_stored_questions) - 1:
                             file.write("-----\n")
-                print("Question successfully removed!")
+                print("\nQuestion successfully removed!")
             else:
                 print("Deletion cancelled")
         else:
@@ -106,21 +106,22 @@ def view_all_questions():
     quiz_file = "quiz_creator.txt"
 
     print(Fore.GREEN + Style.BRIGHT + "\nView all questions")
-    print(Fore.LIGHTWHITE_EX + "List of Questions:")
+    print(Fore.LIGHTWHITE_EX + "\nList of Questions:")
 
     with open(quiz_file, "r") as file:
         print(file.read())
 
     if not os.path.exists(quiz_file):
         print(Fore.RED + "No file found to exists")
-        menu_exit_choice()
+
+    menu_exit_choice()
 
 def menu_exit_choice():
-    menu_choice = input("Would you like to go back to the menu? (yes/no): ")
+    menu_choice = input(Fore.LIGHTWHITE_EX + "\nWould you like to go back to the menu? (yes/no): ")
     if menu_choice.lower() == "yes":
         return
     elif menu_choice.lower() == "no":
-        print(Fore.CYAN + "Goodbye! Thank you. Quiz Creator closed.")
+        print(Fore.CYAN + Style.BRIGHT + "Goodbye! Thank you. Quiz Creator closed.")
         sys.exit()
     else:
         print("Invalid choice! Returning to main menu.")

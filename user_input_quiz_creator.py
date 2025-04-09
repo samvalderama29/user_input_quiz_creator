@@ -101,7 +101,7 @@ def remove_question(): # Function to remove a question to the quiz
                 del user_stored_questions[index] # Remove the selected question using del function
                 with open(quiz_file, "w") as file: # Open the file and rewrite 'w' with the remaining question that are not removed
                     for i, question in enumerate(user_stored_questions):
-                        file.write(question.strip()) # Write each question back to the file
+                        file.write(question.strip() + "\n") # Write each question back to the file
                         if i < len(user_stored_questions) - 1:
                             file.write("-----\n") # Use to separate questions
                 print(Fore.GREEN + "✅ Question successfully removed!") # Displays confirmation message once question is finally removed
@@ -129,11 +129,11 @@ def view_all_questions(): # Function to view all question stored in the file
     menu_exit_choice() # Calls the function to ask the user if they want to exit or return to menu
 
 def menu_exit_choice(): # Function for user choice if they want to exit or return to the menu
-    menu_choice = input(Fore.LIGHTWHITE_EX + "\nWould you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
+    menu_choice = input(Fore.LIGHTWHITE_EX + "Would you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
     if menu_choice.lower() == "yes":  # Return to the menu once user answer is 'yes'
         return
     elif menu_choice.lower() == "no": # Exit and break the program once user answer is 'no'
-        print(Fore.CYAN + Style.BRIGHT + "👋🏽 Goodbye! Thank you. Quiz Creator closed.") # Displays exit message
+        print(Fore.CYAN + Style.BRIGHT + "\n👋🏽 Goodbye! Thank you. Quiz Creator closed.") # Displays exit message
         sys.exit() # Use to officially exit the program
     else:
         print("❗ Invalid choice! Returning to main menu.") # Display error message once user input is invalid

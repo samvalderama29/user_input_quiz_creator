@@ -1,0 +1,35 @@
+Question: In which country is tea origin?
+a) Philippines
+b) China
+c) Usa
+d) Japan
+Correct answer: b
+-----
+Question: Which of the following is an odd number?
+a) 1
+b) 2
+c) 6
+d) 8
+Correct answer: a
+-----
+Question: Which of the following is an even number?
+a) 1
+b) 2
+c) 3
+d) 5
+Correct answer: b
+-----
+Question: What is the sign for subtraction?
+a) -
+b) =
+c) +
+d) /
+Correct answer: a
+-----
+Question: What is the sign for addition?
+a) +
+b) =
+c) =
+d) /
+Correct answer: a
+-----

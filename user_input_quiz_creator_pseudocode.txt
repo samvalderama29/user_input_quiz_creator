@@ -20,6 +20,6 @@ the file, it will display a number, ask the user a number to delete the question
 question. (Done)
 5. Define a function in which when the user chooses "View Questions", it will load all the questions and display them in
 a numbered list for organization. (Ex. [0] How many legs does a dog have?) (Done)
-6. Once the user chooses to "Exit", display a message and eng the program. (Done)
+6. Once the user chooses to "Exit", display a message and end the program. (Done)
 7. Use libraries for more engaging experience such as colorama. Add as well an os.path to check if the quiz file exist
 before trying to delete or load anything. (Done)

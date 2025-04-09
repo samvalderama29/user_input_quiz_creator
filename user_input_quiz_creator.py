@@ -1,3 +1,4 @@
+import sys
 from colorama import init, Fore, Style, Back
 init(autoreset = True)
 import os.path
@@ -55,6 +56,7 @@ def add_new_question():
         if another_question.lower() != "yes":
             print(Fore.RED + "Adding questions cancelled.")
             print(Fore.GREEN + "Questions saved successfully!")
+            menu_exit_choice()
         else:
             add_new_question()
 
@@ -73,13 +75,12 @@ def remove_question():
 
     if not user_stored_questions:
         print(Fore.RED + "No questions found to exists")
-        return
     else:
         print(Fore.LIGHTWHITE_EX + "List of Questions:")
         for i, question in enumerate(user_stored_questions):
             first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty]"
             print(Fore.YELLOW + f"[{i}]{first_line}")
-
+            menu_exit_choice()
     try:
         index = int(input("Enter the number of the question you want to remove: "))
         if 0 <= index < len(user_stored_questions):
@@ -99,6 +100,8 @@ def remove_question():
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
+    menu_exit_choice()
+
 def view_all_questions():
     quiz_file = "quiz_creator.txt"
 
@@ -110,6 +113,17 @@ def view_all_questions():
 
     if not os.path.exists(quiz_file):
         print(Fore.RED + "No file found to exists")
+        menu_exit_choice()
+
+def menu_exit_choice():
+    menu_choice = input("Would you like to go back to the menu? (yes/no): ")
+    if menu_choice.lower() == "yes":
+        return
+    elif menu_choice.lower() == "no":
+        print(Fore.CYAN + "Goodbye! Thank you. Quiz Creator closed.")
+        sys.exit()
+    else:
+        print("Invalid choice! Returning to main menu.")
         return
 
 main_menu()

@@ -77,8 +77,8 @@ def remove_question():
 
     print(Fore.LIGHTWHITE_EX + "List of Questions:")
 
-    for i, user_stored_questions in enumerate(user_stored_questions):
-        first_line = user_stored_questions.splitlines()[0].replace("Question: ", " ") if user_stored_questions else "[Empty Question]"
+    for i, question in enumerate(user_stored_questions):
+        first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty Question]"
         print(Fore.YELLOW + f"[{i}]{first_line}")
 
     try:
@@ -86,14 +86,19 @@ def remove_question():
         if 0 <= index < len(user_stored_questions):
             confirm_remove = input("Are you sure you to delete this question? (yes/no): ")
             if confirm_remove.lower() == "yes":
-                user_stored_questions.pop(index)
+                del user_stored_questions[index]
                 with open(quiz_file, "w") as file:
-                    file.write(f" {user_stored_questions} -----\n")
+                    for i, question in enumerate(user_stored_questions):
+                        file.write(question.strip() + "\n")
+                        if i < len(user_stored_questions) - 1:
+                            file.write("-----\n")
                 print("Question successfully removed!")
             else:
                 print("Deletion cancelled")
-    finally:
-        pass
+        else:
+            print(f"Invalid input. Please enter a number between 0 and {len(user_stored_questions) - 1}")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
 
 def view_all_questions():
     quiz_file = "quiz_creator.txt"

@@ -129,14 +129,14 @@ def view_all_questions(): # Function to view all question stored in the file
     menu_exit_choice() # Calls the function to ask the user if they want to exit or return to menu
 
 def menu_exit_choice(): # Function for user choice if they want to exit or return to the menu
-    menu_choice = input(Fore.LIGHTWHITE_EX + "Would you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
+    menu_choice = input(Fore.LIGHTWHITE_EX + "\nWould you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
     if menu_choice.lower() == "yes":  # Return to the menu once user answer is 'yes'
         return
     elif menu_choice.lower() == "no": # Exit and break the program once user answer is 'no'
         print(Fore.CYAN + Style.BRIGHT + "\n👋🏽 Goodbye! Thank you. Quiz Creator closed.") # Displays exit message
         sys.exit() # Use to officially exit the program
     else:
-        print("❗ Invalid choice! Returning to main menu.") # Display error message once user input is invalid
+        print(Fore.RED + "❗ Invalid choice! Returning to main menu.") # Display error message once user input is invalid
         return # Returns to main menu
 
 main_menu() # Start the main menu function

@@ -74,12 +74,11 @@ def remove_question():
     if not user_stored_questions:
         print(Fore.RED + "No questions found to exists")
         return
-
-    print(Fore.LIGHTWHITE_EX + "List of Questions:")
-
-    for i, question in enumerate(user_stored_questions):
-        first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty Question]"
-        print(Fore.YELLOW + f"[{i}]{first_line}")
+    else:
+        print(Fore.LIGHTWHITE_EX + "List of Questions:")
+        for i, question in enumerate(user_stored_questions):
+            first_line = question.splitlines()[0].replace("Question: ", " ") if question else "[Empty]"
+            print(Fore.YELLOW + f"[{i}]{first_line}")
 
     try:
         index = int(input("Enter the number of the question you want to remove: "))

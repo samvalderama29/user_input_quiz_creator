@@ -31,14 +31,19 @@ def load_questions():
         quiz_questions.append(file_question)
     return quiz_questions
 
-if __name__ == "__main__":
-    list_questions = load_questions()
-    print("Loaded Questions:")
-    for i, question in enumerate(list_questions, 1):
-        print(f"Question {i}: {question["file_question"]}")
-        print(f"a) {question["option_a"]}")
-        print(f"b) {question["option_b"]}")
-        print(f"c) {question["option_c"]}")
-        print(f"d) {question["option_d"]}")
-        print(f"Correct Answer: {question["correct_answer"]}")
-        print()
+def main_menu():
+    print("1. Play")
+    print("2. Check High Scores")
+    print("3. Exit")
+
+    user_choice = input("Enter your option: ")
+
+    if user_choice == "1"
+        quiz_game_play()
+        pass
+    elif user_choice == "2"
+        high_score_view()
+        pass
+    elif user_choice == "3"
+        menu_exit()
+        pass

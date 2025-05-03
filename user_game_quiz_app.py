@@ -40,7 +40,6 @@ def main_menu():
 
     if user_choice == "1":
         quiz_game_start()
-        pass
     elif user_choice == "2":
         high_score_view()
         pass
@@ -57,13 +56,55 @@ def quiz_game_start():
 
     print(f"\nWelcome, {player_name}! Let's begin!")
 
-    enter_game = input('Type "GO" to start the game')
+    enter_game = input('Type "GO" to start the game: ')
 
-    if enter_game == "GO"
+    if enter_game == "GO":
         quiz_game_play()
-        pass
     else:
         print('Invalid input. Type "GO" only')
-        pass
+        quiz_game_start()
+
+def quiz_game_play():
+    questions_list = load_questions()
+    if not questions_list:
+        return
+
+    random.shuffle(questions_list)
+    current_score = 0
+    incorrect_attempts = 0
+    max_allowed_incorrect = 5
+    question_log = []
+
+    for current_question in questions_list:
+        if incorrect_attempts >= max_allowed_incorrect:
+            break
+
+        print(f"\nScore: {current_score} | Mistakes: {incorrect_attempts}/{max_allowed_incorrect}")
+        print(f"\nQuestion: {current_question["file_question"]}")
+        print(f"a) {current_question["option_a"]}")
+        print(f"b) {current_question["option_b"]}")
+        print(f"c) {current_question["option_c"]}")
+        print(f"d) {current_question["option_d"]}")
+
+        while True:
+            player_answer = input("Your answer (a/b/c/d): ").strip()
+            if player_answer.isupper():
+                print("Capital letters are not allowed. Please use lowercase only (a/b/c/d)")
+                continue
+            if player_answer in ['a', 'b', 'c', 'd']:
+                break
+            print("Please enter a valid option (a/b/c/d)")
+
+        if player_answer == current_question["correct_answer"]:
+            print("Correct!")
+            current_score += 1
+        else:
+            print(f"Wrong! Correct answer was: {current_question["correct_answer"]}")
+            incorrect_attempts += 1
+
+        question_log.append((current_question["file_question"], player_answer, current_question["correct_answer"]))
+
+    print("\nGAME OVER")
+    print(f"\nFinal Score: {current_score}")
 
 main_menu()

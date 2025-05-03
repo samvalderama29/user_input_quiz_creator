@@ -38,12 +38,32 @@ def main_menu():
 
     user_choice = input("Enter your option: ")
 
-    if user_choice == "1"
-        quiz_game_play()
+    if user_choice == "1":
+        quiz_game_start()
         pass
-    elif user_choice == "2"
+    elif user_choice == "2":
         high_score_view()
         pass
-    elif user_choice == "3"
+    elif user_choice == "3":
         menu_exit()
         pass
+
+def quiz_game_start():
+    print("\nQuiz Game\n")
+    player_name = input("Enter your name: ")
+    if not player_name:
+        print("Name cannot be empty")
+        return
+
+    print(f"\nWelcome, {player_name}! Let's begin!")
+
+    enter_game = input('Type "GO" to start the game')
+
+    if enter_game == "GO"
+        quiz_game_play()
+        pass
+    else:
+        print('Invalid input. Type "GO" only')
+        pass
+
+main_menu()

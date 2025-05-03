@@ -115,12 +115,19 @@ def quiz_game_play():
 
         game_choice = input("Choose an option: ")
         if game_choice == "1":
-            view_answer_key()
+            view_answer_key(question_log)
             pass
         elif game_choice == "2":
             main_menu()
         else:
             print("Goodbye. Thank you!")
             break
+
+def view_answer_key(history):
+    print("\nAnswer Key")
+    for i, (question, given, correct) in enumerate(history, 1):
+        print(f"{i}. {question}")
+        print(f"Your Answer: {given}")
+        print(f"Correct Answer: {correct}\n")
 
 main_menu()

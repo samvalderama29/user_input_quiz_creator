@@ -107,4 +107,20 @@ def quiz_game_play():
     print("\nGAME OVER")
     print(f"\nFinal Score: {current_score}")
 
+    while True:
+        print("\nWhat would you like to do?")
+        print("\n1. View Answer Key")
+        print("2. Main Menu")
+        print("3. Exit")
+
+        game_choice = input("Choose an option: ")
+        if game_choice == "1":
+            view_answer_key()
+            pass
+        elif game_choice == "2":
+            main_menu()
+        else:
+            print("Goodbye. Thank you!")
+            break
+
 main_menu()

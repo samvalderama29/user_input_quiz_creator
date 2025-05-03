@@ -136,4 +136,13 @@ def save_high_score(player_name, current_score):
     with open(high_score_file, "a") as file:
         file.write(f"{player_name}: {current_score}\n")
 
+def high_score_view():
+    if not os.path.exists(high_score_file):
+        print("No high scores yet.")
+        return
+
+    print("High Scores")
+    with open(high_score_file, "r") as file:
+        print(file.read())
+
 main_menu()

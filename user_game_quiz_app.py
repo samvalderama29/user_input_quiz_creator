@@ -6,6 +6,7 @@ from pyfiglet import Figlet
 init(autoreset = True)
 
 questions_file = "quiz_creator.txt"
+high_score_file = "high_scores.txt"
 
 def load_questions():
     if not os.path.exists(questions_file):
@@ -42,7 +43,6 @@ def main_menu():
         quiz_game_start()
     elif user_choice == "2":
         high_score_view()
-        pass
     elif user_choice == "3":
         menu_exit()
         pass
@@ -107,6 +107,8 @@ def quiz_game_play():
     print("\nGAME OVER")
     print(f"\nFinal Score: {current_score}")
 
+    save_high_score(player_name, current_score)
+
     while True:
         print("\nWhat would you like to do?")
         print("\n1. View Answer Key")
@@ -129,5 +131,9 @@ def view_answer_key(history):
         print(f"{i}. {question}")
         print(f"Your Answer: {given}")
         print(f"Correct Answer: {correct}\n")
+
+def save_high_score(player_name, current_score):
+    with open(high_score_file, "a") as file:
+        file.write(f"{player_name}: {current_score}\n")
 
 main_menu()

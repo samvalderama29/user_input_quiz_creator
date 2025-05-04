@@ -1,35 +1,105 @@
-Question: In which country is tea origin?
-a) Philippines
-b) China
-c) Usa
-d) Japan
+Question: What gas is used to extinguish fires?
+a) Oxygen
+b) Nitrogen
+c) Carbon dioxide
+d) Hydrogen
 Correct answer: b
 -----
-Question: Which of the following is an odd number?
-a) 1
-b) 2
-c) 6
-d) 8
-Correct answer: a
+Question: Which river is the longest in the world?
+a) Amazon
+b) Mississippi
+c) Nile
+d) Yangtze
+Correct answer: c
 -----
-Question: Which of the following is an even number?
-a) 1
-b) 2
-c) 3
-d) 5
+Question: What is the capital of Japan?
+a) Beijing
+b) Tokyo
+c) Seoul
+d) Bangkok
 Correct answer: b
 -----
-Question: What is the sign for subtraction?
-a) -
-b) =
-c) +
-d) /
+Question: Which planet in the solar system is known as the “Red Planet”?
+a) Venus
+b) Earth
+c) Mars
+d) Jupiter
+Correct answer: c
+-----
+Question: What is the largest lake in the world?
+a) Caspian Sea
+b) Baikal
+c) Lake Superior
+d) Ontario
+Correct answer: b
+-----
+Question: In what year was the United Nations (UN) founded?
+a) 1945
+b) 1919
+c) 1956
+d) 1961
 Correct answer: a
 -----
-Question: What is the sign for addition?
-a) +
-b) =
-c) =
-d) /
+Question: Who wrote “Crime and Punishment”?
+a) Leo Tolstoy
+b) Fyodor Dostoevsky
+c) Anton Chekhov
+d) Ivan Turgenev
+Correct answer: b
+-----
+Question: How many bones are in the body of an adult human?
+a) 330
+b) 206
+c) 250
+d) 210
+Correct answer: b
+-----
+Question: In which century the Mona Lisa was painted?
+a) 18th century
+b) 15th century
+c) 16th century
+d) 14th century
+Correct answer: c
+-----
+Question: What is the phobia of thunder and rain?
+a) Agoraphobia
+b) Ombrophobia
+c) Acrophobia
+d) Claustrophobia
+Correct answer: b
+-----
+Question: What chemical element is designated as “Hg”?
+a) Silver
+b) Tin
+c) Copper
+d) Mercury
+Correct answer: d
+-----
+Question: What is the name of the process by which plants convert sunlight into energy?
+a) Respiration
+b) Photosynthesis
+c) Oxidation
+d) Evolution
+Correct answer: b
+-----
+Question: What animal is the national symbol of Australia?
+a) Kangaroo
+b) Koala
+c) Emu
+d) Crocodile
 Correct answer: a
+-----
+Question: Which organ in the human body is responsible for secreting insulin?
+a) Liver
+b) Kidneys
+c) Pancreas
+d) Stomach
+Correct answer: c
+-----
+Question: Which sea lies between Asia and Africa?
+a) Caspian
+b) Red
+c) Mediterranean
+d) Dead
+Correct answer: c
 -----

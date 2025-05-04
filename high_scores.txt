@@ -1,0 +1,9 @@
+Angel: 1
+Sam: 1
+Gel: 0
+Eda: 1
+Sammy: 1
+Siopao: 2
+Gors: 1
+Hamburger: 2
+Hamburger: 3

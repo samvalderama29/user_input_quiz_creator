@@ -59,12 +59,12 @@ def quiz_game_start():
     enter_game = input('Type "GO" to start the game: ')
 
     if enter_game == "GO":
-        quiz_game_play()
+        quiz_game_play(player_name)
     else:
         print('Invalid input. Type "GO" only')
         quiz_game_start()
 
-def quiz_game_play():
+def quiz_game_play(player_name):
     questions_list = load_questions()
     if not questions_list:
         return

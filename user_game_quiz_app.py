@@ -42,11 +42,15 @@ def print_title():
 
 def main_menu():
     print_title()
-    print("1. Play")
-    print("2. Check High Scores")
-    print("3. Exit")
+    print(Fore.LIGHTMAGENTA_EX + Style.BRIGHT +  "💡 Welcome to the Quiz Game!")
+    print(Fore.LIGHTWHITE_EX + "📚 Test your general knowledge and see how high you can score!")
 
-    user_choice = input("Enter your option: ")
+    print(Fore.LIGHTYELLOW_EX + "\nWhat would you like to do?")
+    print("1️⃣ Play")
+    print("2️⃣ Check High Scores")
+    print("3️⃣ Exit")
+
+    user_choice = input(Fore.LIGHTYELLOW_EX + "Enter your option (1/2/3): ")
 
     if user_choice == "1":
         quiz_game_start()
@@ -57,20 +61,27 @@ def main_menu():
         pass
 
 def quiz_game_start():
-    print("\nQuiz Game\n")
-    player_name = input("Enter your name: ")
+    print()
+    print_title()
+    print(Fore.LIGHTGREEN_EX + "🎮 Starting Quiz Game...\n")
+    print(Fore.LIGHTBLUE_EX + "📜 Rules:")
+    print("✅ The game consists of 25 general knowledge questions.")
+    print("❌ Once you reach 5 mistakes, the game is over.")
+    print("🎯 Good luck and enjoy!")
+
+    player_name = input(Fore.YELLOW + Style.BRIGHT + "\n✍️ Enter your name: ")
     if not player_name:
-        print("Name cannot be empty")
+        print(Fore.RED + "⚠️ Name cannot be empty.")
         return
 
-    print(f"\nWelcome, {player_name}! Let's begin!")
+    print(f"\n👋 Welcome, {Fore.LIGHTYELLOW_EX + player_name}{Fore.RESET}! Let's begin!")
 
-    enter_game = input('Type "GO" to start the game: ')
+    enter_game = input(f'🔑 Type {Fore.LIGHTGREEN_EX}"GO" {Fore.RESET}to start the game: ')
 
     if enter_game == "GO":
         quiz_game_play(player_name)
     else:
-        print('Invalid input. Type "GO" only')
+        print(Fore.RED + '❌ Invalid input. Type "GO" only.')
         quiz_game_start()
 
 def quiz_game_play(player_name):
@@ -88,56 +99,55 @@ def quiz_game_play(player_name):
         if incorrect_attempts >= max_allowed_incorrect:
             break
 
-        print(f"\nScore: {current_score} | Mistakes: {incorrect_attempts}/{max_allowed_incorrect}")
-        print(f"\nQuestion: {current_question["file_question"]}")
+        print(Fore.LIGHTBLACK_EX + f"\n⭐ Score: {current_score} | ❌ Mistakes: {incorrect_attempts}/{max_allowed_incorrect}")
+        print(Fore.LIGHTYELLOW_EX+ f"\nQuestion: {current_question["file_question"]}")
         print(f"a) {current_question["option_a"]}")
         print(f"b) {current_question["option_b"]}")
         print(f"c) {current_question["option_c"]}")
         print(f"d) {current_question["option_d"]}")
 
         while True:
-            player_answer = input("Your answer (a/b/c/d): ").strip()
+            player_answer = input(Fore.LIGHTWHITE_EX + "Your answer (a/b/c/d): ").strip()
             if player_answer.isupper():
-                print("Capital letters are not allowed. Please use lowercase only (a/b/c/d)")
+                print(Fore.RED + "⚠️ Capital letters are not allowed. Please use lowercase only (a/b/c/d).")
                 continue
             if player_answer in ['a', 'b', 'c', 'd']:
                 break
-            print("Please enter a valid option (a/b/c/d)")
+            print(Fore.RED + "⚠️ Please enter a valid option (a/b/c/d).")
 
         if player_answer == current_question["correct_answer"]:
-            print("Correct!")
+            print(Fore.GREEN + "✅ Correct!")
             current_score += 1
         else:
-            print(f"Wrong! Correct answer was: {current_question["correct_answer"]}")
+            print(Fore.RED + f"❌ Wrong! Correct answer was: {current_question["correct_answer"]}")
             incorrect_attempts += 1
 
         question_log.append((current_question["file_question"], player_answer, current_question["correct_answer"]))
 
-    print("\nGAME OVER")
-    print(f"\nFinal Score: {current_score}")
+    print(Fore.RED + "\n🛑 GAME OVER 🛑 ")
+    print(Fore.LIGHTCYAN_EX + f"\nFinal Score: {current_score}")
 
     save_high_score(player_name, current_score)
 
     while True:
-        print("\nWhat would you like to do?")
-        print("\n1. View Answer Key")
-        print("2. Main Menu")
-        print("3. Exit")
+        print(Fore.LIGHTYELLOW_EX + "\nWhat would you like to do next?")
+        print("📄 1. View Answer Key")
+        print("🏠 2. Main Menu")
+        print("🚪 3. Exit")
 
-        game_choice = input("Choose an option: ")
+        game_choice = input(Fore.LIGHTWHITE_EX + "Choose an option: ")
         if game_choice == "1":
             view_answer_key(question_log)
-            pass
         elif game_choice == "2":
             main_menu()
         else:
-            print("Goodbye. Thank you!")
+            print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
             break
 
 def view_answer_key(history):
-    print("\nAnswer Key")
+    print(Fore.LIGHTBLUE_EX + "\n📘 Answer Key")
     for i, (question, given, correct) in enumerate(history, 1):
-        print(f"{i}. {question}")
+        print(Fore.LIGHTYELLOW_EX + f"{i}. {question}")
         print(f"Your Answer: {given}")
         print(f"Correct Answer: {correct}\n")
 
@@ -147,10 +157,10 @@ def save_high_score(player_name, current_score):
 
 def high_score_view():
     if not os.path.exists(high_score_file):
-        print("No high scores yet.")
+        print(Fore.YELLOW + "⚠️ No high scores yet.")
         return
 
-    print("High Scores")
+    print(Fore.LIGHTGREEN_EX + "\n🏆 High Scores 🏆")
     with open(high_score_file, "r") as file:
         print(file.read())
 

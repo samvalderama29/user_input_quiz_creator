@@ -32,7 +32,16 @@ def load_questions():
         quiz_questions.append(file_question)
     return quiz_questions
 
+def print_title():
+    fig = Figlet(font='bulbhead')
+    quiz = fig.renderText('Quiz').splitlines()
+    game = fig.renderText('Game').splitlines()
+    for q, g in zip(quiz, game):
+        print(Fore.MAGENTA + q + "  " + Fore.CYAN + g)
+    print(Style.RESET_ALL)
+
 def main_menu():
+    print_title()
     print("1. Play")
     print("2. Check High Scores")
     print("3. Exit")

@@ -1,3 +1,4 @@
+import sys
 import random
 import os
 from colorama import init, Fore, Style
@@ -59,9 +60,9 @@ def main_menu():
             high_score_view()
         elif user_choice == "3":
             print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
-            break
+            sys.exit()
         else:
-            print(Fore.RED +"\n❌ Invalid input! Please choose between 1, 2, and 3 only.")
+            print(Fore.RED +"❌ Invalid input! Please choose between 1, 2, and 3 only.\n")
 
 def quiz_game_start():
     print()
@@ -141,6 +142,7 @@ def quiz_game_play(player_name):
         game_choice = input(Fore.LIGHTWHITE_EX + "Choose an option: ")
         if game_choice == "1":
             view_answer_key(question_log)
+            menu_exit_choice()
         elif game_choice == "2":
             main_menu()
         else:
@@ -166,5 +168,18 @@ def high_score_view():
     print(Fore.LIGHTGREEN_EX + "\n🏆 High Scores 🏆")
     with open(high_score_file, "r") as file:
         print(file.read())
+        menu_exit_choice()
+
+def menu_exit_choice():
+    menu_choice = input(Fore.LIGHTWHITE_EX + "Would you like to go back to the menu? (yes/no): ")
+    if menu_choice.lower() == "yes":
+        print()
+        main_menu()
+    elif menu_choice.lower() == "no":
+        print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
+        sys.exit()
+    else:
+        print(Fore.RED + "❗ Invalid choice! Returning to main menu.")
+        return
 
 main_menu()

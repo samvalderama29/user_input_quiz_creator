@@ -135,19 +135,24 @@ def quiz_game_play(player_name):
 
     while True:
         print(Fore.LIGHTYELLOW_EX + "\nWhat would you like to do next?")
-        print("📄 1. View Answer Key")
-        print("🏠 2. Main Menu")
-        print("🚪 3. Exit")
+        print("🕹️ 1. Play Again")
+        print("📄 2. View Answer Key")
+        print("🏠 3. Main Menu")
+        print("🚪 4. Exit")
 
         game_choice = input(Fore.LIGHTWHITE_EX + "Choose an option: ")
         if game_choice == "1":
+            quiz_game_play(player_name)
+        elif game_choice == "2":
             view_answer_key(question_log)
             menu_exit_choice()
-        elif game_choice == "2":
+        elif game_choice == "3":
             main_menu()
-        else:
+        elif game_choice == "4":
             print(Fore.CYAN + Style.BRIGHT + "👋 Goodbye. Thank you for playing!")
             break
+        else:
+            print(Fore.RED + "❌ Invalid input! Please choose between 1, 2, 3, and 4 only.\n")
 
 def view_answer_key(history):
     print(Fore.LIGHTBLUE_EX + "\n📘 Answer Key")

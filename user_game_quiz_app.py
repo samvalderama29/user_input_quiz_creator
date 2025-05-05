@@ -158,9 +158,13 @@ def quiz_game_play(player_name):
         # Store the question, the user's answer, and the correct answer for review
         question_log.append((current_question["file_question"], player_answer, current_question["correct_answer"]))
 
-    # Game ends after reaching max incorrect attempts or finishing questions
-    print(Fore.RED + "\n🛑 GAME OVER 🛑") # Display game over message
-    print(Fore.LIGHTCYAN_EX + f"\nFinal Score: {current_score}") # Show the player's final score
+    # Check the user's score using if-else logic and print a game over or congratulatory message
+    if current_score == len(questions_list):
+        print(Fore.LIGHTCYAN_EX + f"\nFinal Score: {current_score}") # Show the player's final score
+        print(Fore.GREEN + "🎉 Congratulations! You got a perfect score! 🎉") # Display congratulations message
+    else:
+        print(Fore.RED + "\n🛑 GAME OVER 🛑") # Display game over message
+        print(Fore.LIGHTCYAN_EX + f"\nFinal Score: {current_score}") # Show the player's final score
 
     # Save the score with the player's name in the high_scores.txt file
     save_high_score(player_name, current_score)
@@ -215,7 +219,7 @@ def high_score_view():
     with open(high_score_file, "r") as file: # Open the high score file in read mode to display the stored scores
         print(file.read()) # Read and print the contents of the high score file
 
-        menu_exit_choice() # Calls the function to display the exit menu options
+    menu_exit_choice() # Calls the function to display the exit menu options
 
 # Function for user choice if they want to exit or return to the menu
 def menu_exit_choice():

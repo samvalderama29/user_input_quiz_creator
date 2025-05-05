@@ -216,14 +216,26 @@ def high_score_view():
     print() # Print a blank line for space
     print_title()  # Call the function to print the game title
     print(Fore.LIGHTGREEN_EX + "🏆 High Scores 🏆") # Print the heading for the high scores in green
+
+    # Initialize an empty list to store player scores and names
+    scores = []
     with open(high_score_file, "r") as file: # Open the high score file in read mode to display the stored scores
-        print(file.read()) # Read and print the contents of the high score file
+        for name_line in file: # Loop through each line in the file
+            player_name, player_score = name_line.strip().rsplit(":", 1) # Split each line into player name and score
+            scores.append((int(player_score), player_name)) # Append the score and name as a tuple to the scores list
+
+    # Sort the list of scores in descending order (highest to lowest)
+    scores.sort(reverse = True)
+
+    # Loop through the sorted list
+    for score, name in scores:
+        print(f"{name}: {score}") # Display each name with their corresponding score
 
     menu_exit_choice() # Calls the function to display the exit menu options
 
 # Function for user choice if they want to exit or return to the menu
 def menu_exit_choice():
-    menu_choice = input(Fore.LIGHTWHITE_EX + "⇄ Would you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
+    menu_choice = input(Fore.LIGHTWHITE_EX + "\n⇄ Would you like to go back to the menu? (yes/no): ") # Ask if user wants to exit or return
     if menu_choice.lower() == "yes": # Return to the menu once user answer is 'yes'
         print()
         main_menu()

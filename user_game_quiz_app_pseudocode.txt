@@ -1,0 +1,22 @@
+Quiz Game
+
+Pseudocode:
+1. Initialize the necessary modules and files: sys, random, os, colorama, and pyfiglet. (Done)
+2. Add a block of code to check if the questions file (quiz_creator.txt) exists. Use a dictionary to format
+the file into a list of questions, each with choices (a–d) and the correct answer. (Done)
+3. Define a function that creates a styled "Quiz Game" header using pyfiglet. (Done)
+4. Define a main menu that displays the styled "Quiz Game" with welcome message and presents the following options:
+Play, Check High Scores, and Exit. (Done)
+5. Define a function that starts the game when the player selects "Play". It should:
+    - Display the game rules
+    - Prompt the user for their name
+    - Shuffle the questions loaded from quiz_creator.txt
+    - Keep track of correct and incorrect answers
+    - End the game when the player makes 5 mistakes and display "Game Over"
+    - Provide options to play again, view the answer key, return to the main menu, or exit the game
+    (Done: Added an option under the view answer key to ask the user if they want to exit or go back to the main menu)
+6. Define a function to save the high score using file handling so that when the user selects "Check High Scores",
+it reads and display the contents of the saved file named high_scores.txt. (Done)
+7. Add a function that ends the program when the user selects "Exit". (Done)
+8. Finalize the code by including colors in the program using colorama and add comments on each line to serve as a guide on
+how the quiz game is created. (Done)

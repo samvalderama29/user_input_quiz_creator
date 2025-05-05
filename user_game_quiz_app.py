@@ -170,13 +170,15 @@ def high_score_view():
         print(Fore.YELLOW + "⚠️ No high scores yet.")
         return
 
-    print(Fore.LIGHTGREEN_EX + "\n🏆 High Scores 🏆")
+    print()
+    print_title()
+    print(Fore.LIGHTGREEN_EX + "🏆 High Scores 🏆")
     with open(high_score_file, "r") as file:
         print(file.read())
         menu_exit_choice()
 
 def menu_exit_choice():
-    menu_choice = input(Fore.LIGHTWHITE_EX + "Would you like to go back to the menu? (yes/no): ")
+    menu_choice = input(Fore.LIGHTWHITE_EX + "⇄ Would you like to go back to the menu? (yes/no): ")
     if menu_choice.lower() == "yes":
         print()
         main_menu()

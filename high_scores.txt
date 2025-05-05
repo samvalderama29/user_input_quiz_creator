@@ -8,3 +8,5 @@ Gors: 1
 Hamburger: 2
 Hamburger: 3
 French Fries: 1
+Nene: 1
+Bebang: 0

@@ -7,3 +7,4 @@ Siopao: 2
 Gors: 1
 Hamburger: 2
 Hamburger: 3
+French Fries: 1

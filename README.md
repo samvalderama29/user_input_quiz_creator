@@ -30,7 +30,7 @@ It uses the `colorama` and `pyfiglet` libraries to make the command-line experie
 ### 🎮 Quiz Game
 
 
-* Play through 25 general knowledge questions *(users can add more questions using `user_input_quiz_creator.py`)*
+* Play through 15 general knowledge questions *(users can add more questions using `user_input_quiz_creator.py`)*
 * End the game after 5 incorrect answers
 * Tracks and displays your final score
 * Saves and shows a sorted high score list (`high_scores.txt`)
